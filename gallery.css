@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+
+h1 {
+  font-family: "Playwrite IT Moderna", cursive;
+  margin-bottom: 30px;
+  color: #5b5b5b;
+  font-size: 25px;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+}
+
+#gallery-figure {
+  position: fixed;
+  width: 60%;
+  left: 30px;
+  top: 100px;
+}
+
+#gallery-figure img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+#gallery-list {
+  top: 100px;
+  width: 25%;
+  position: absolute;
+  right: 6%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+}
+
+#gallery-list li {
+  cursor: pointer;
+}
+
+#gallery-list img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+#gallery-list li:not(.active) {
+  filter: grayscale(1);
+}
+
+figcaption {
+  font-family: "Playwrite IT Moderna", cursive;
+}
