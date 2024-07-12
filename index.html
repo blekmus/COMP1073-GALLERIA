@@ -1,35 +1,37 @@
 <!-- Below, please list all group members' full names and student IDs. -->
 <!-- Dinil Fernando 200559428  -->
-<!-- Yu Zhao   -->
-
+<!-- Yu Zhao 200559971  -->
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Image Gallery | COMP1073 Client-Side JavaScript</title>
+    <link rel="stylesheet" href="gallery.css" />
+    <script src="script.js" defer></script>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Image Gallery | COMP1073 Client-Side JavaScript</title>
-  <link rel="stylesheet" href="gallery.css" />
-  <script src="script.js" defer></script>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <!-- google fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap"
-    rel="stylesheet" />
-</head>
+  <body>
+    <h1>Galleria</h1>
+    <section id="gallery">
+      <!-- The large image will be displayed here -->
+      <figure id="gallery-figure">
+        <img src="images/flowers-pink-large.jpg" alt="" />
+        <figcaption>Image title to appear here</figcaption>
+      </figure>
 
-<body>
-  <h1>Galleria</h1>
-  <section id="gallery">
-    <figure id="gallery-figure">
-      <img src="images/flowers-pink-large.jpg" alt="" />
-      <figcaption>Image title to appear here</figcaption>
-    </figure>
-    <ul id="gallery-list">
-    </ul>
-  </section>
-  <!-- PHOTO CREDITS
+      <!-- The thumbnails will be displayed here -->
+      <ul id="gallery-list"></ul>
+    </section>
+    <!-- PHOTO CREDITS
   Sunflowers in the hamlet Dernekamp, Kirchspiel, Dülmen, North Rhine-Westphalia, Germany
   By Dietmar Rabich - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=61514522
 
@@ -44,7 +46,5 @@
 
   Market in Münster, North Rhine-Westphalia, Germany
   By Dietmar Rabich - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=62071586
-  -->
-</body>
-
+  --></body>
 </html>

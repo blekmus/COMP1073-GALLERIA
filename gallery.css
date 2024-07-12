@@ -1,15 +1,17 @@
+/* Universal reset to remove default margins, padding, and set box-sizing to border-box */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Ensure the html element takes up the full height and width of the viewport */
 html {
   height: 100%;
   width: 100%;
 }
 
-
+/* Style for all h1 elements */
 h1 {
   font-family: "Playwrite IT Moderna", cursive;
   margin-bottom: 30px;
@@ -20,6 +22,7 @@ h1 {
   left: 30px;
 }
 
+/* Style for the figure element with id gallery-figure */
 #gallery-figure {
   position: fixed;
   width: 60%;
@@ -27,11 +30,13 @@ h1 {
   top: 100px;
 }
 
+/* Style for images within the gallery-figure */
 #gallery-figure img {
   width: 100%;
   border-radius: 5px;
 }
 
+/* Style for the unordered list with id gallery-list */
 #gallery-list {
   top: 100px;
   width: 25%;
@@ -43,20 +48,24 @@ h1 {
   padding-right: 20px;
 }
 
+/* Style for list items within the gallery-list */
 #gallery-list li {
   cursor: pointer;
 }
 
+/* Style for images within the gallery-list */
 #gallery-list img {
   width: 100%;
   height: auto;
   border-radius: 5px;
 }
 
+/* Apply grayscale filter to list items within gallery-list that do not have the active class */
 #gallery-list li:not(.active) {
   filter: grayscale(1);
 }
 
+/* Style for figcaption elements */
 figcaption {
   font-family: "Playwrite IT Moderna", cursive;
 }
