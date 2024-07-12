@@ -69,3 +69,55 @@ h1 {
 figcaption {
   font-family: "Playwrite IT Moderna", cursive;
 }
+
+/* CSS image transition effects */
+#gallery-figure img {
+  transition: opacity 0.5s ease-in-out;
+}
+
+#gallery-figure img.fade-out {
+  opacity: 0;
+}
+
+#gallery-figure img.fade-in {
+  opacity: 1;
+}
+
+
+/* Lightbox overlay styling */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox img {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 5px;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.lightbox .close:hover,
+.lightbox .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}

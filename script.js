@@ -5,17 +5,32 @@ function handleClick(element, figure) {
   // Loop through each child
   for (let i = 0; i < children.length; i++) {
     // Add an event listener to each child
-    children[i].addEventListener('click', function() {
+    // Modify the JavaScript to include transition effects
+    children[i].addEventListener('click', function () {
+      // Loop through each child
       for (let j = 0; j < children.length; j++) {
+        // Check if the child is the same as the clicked child
         if (children[j] === children[i]) {
-          // Add the active class to the clicked child
           children[j].classList.add('active');
+          const currentImg = figure.children[0];
+          currentImg.classList.add('fade-out');
 
-          // Set the image source and title of the figure element
-          figure.children[0].src = children[j].getAttribute('image-src');
+          // Fade in the image and set the image
+          setTimeout(() => {
+            currentImg.src = children[j].getAttribute('image-src');
+            currentImg.classList.remove('fade-out');
+            currentImg.classList.add('fade-in');
+          }, 200);
+
+          // Fade out the image
+          setTimeout(() => {
+            currentImg.classList.remove('fade-in');
+          }, 400);
+
+          // Set the image title of the figure element
           figure.children[1].textContent = children[j].getAttribute('image-title');
         } else {
-          // Remove the active class from the other children
+          // Remove the active class from the child
           children[j].classList.remove('active');
         }
       }
@@ -42,6 +57,20 @@ function addElements(imageList, galleryList) {
     // Append the list item to the gallery list
     galleryList.append(li);
   })
+}
+
+// Start the slideshow
+function startSlideshow() {
+  slideshowInterval = setInterval(() => {
+    currentIndex = (currentIndex + 1) % galleryList.children.length;
+    galleryList.children[currentIndex].click();
+  }, interval);
+}
+
+// Reset the slideshow timer
+function resetSlideshow() {
+  clearInterval(slideshowInterval);
+  startSlideshow();
 }
 
 // Image links
@@ -77,6 +106,16 @@ const imageLinks = [
 const galleryList = document.getElementById('gallery-list')
 const figure = document.getElementById('gallery-figure')
 
+// For lightbox functionality
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const close = document.querySelector('.close');
+
+// Variables for slideshow control
+let currentIndex = 0;
+const interval = 3000; // Set interval time in milliseconds
+let slideshowInterval;
+
 // Add the image links to the gallery list
 addElements(imageLinks, galleryList);
 
@@ -88,3 +127,34 @@ galleryList.children[0].classList.add('active')
 
 // Set the image source and title of the figure element
 figure.children[1].textContent = imageLinks[0].title
+
+// Start the slideshow
+startSlideshow();
+
+
+// Event listeners
+
+// Open the lightbox when an image is clicked
+figure.addEventListener('click', function (event) {
+  lightbox.style.display = 'flex';
+  lightboxImg.src = event.target.src;
+});
+
+// Close the lightbox when the close button is clicked
+close.addEventListener('click', function () {
+  lightbox.style.display = 'none';
+})
+
+// Close the lightbox when the background of the image is clicked is clicked
+lightbox.addEventListener('click', function (event) {
+  if (event.target === lightbox) {
+    lightbox.style.display = 'none';
+  }
+});
+
+galleryList.addEventListener('click', function (event) {
+  if (event.target.tagName === 'IMG') {
+    currentIndex = Array.from(galleryList.children).indexOf(event.target.parentElement);
+    resetSlideshow();
+  }
+});
